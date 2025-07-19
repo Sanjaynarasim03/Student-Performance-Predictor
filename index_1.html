@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 Student Performance Predictor - AI-Powered Academic Success Forecasting</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="container">
+                <h1 class="header__title">🎓 Student Performance Predictor</h1>
+                <p class="header__subtitle">AI-powered prediction system to forecast student academic success</p>
+                <p class="header__description">
+                    Enter student information below to predict academic performance with confidence scores and feature analysis.
+                    <br><small>⚠️ This is for educational purposes and demonstration only</small>
+                </p>
+            </div>
+        </header>
+
+        <main class="main-content container">
+            <!-- Input Form Section -->
+            <section class="form-section card">
+                <div class="form-header">
+                    <h2>📊 Student Information</h2>
+                    <p>Complete all fields to get an accurate prediction</p>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn--secondary btn--sm" id="fillExampleBtn">
+                            ✨ Fill Example Data
+                        </button>
+                        <button type="button" class="btn btn--outline btn--sm" id="resetFormBtn">
+                            🔄 Reset Form
+                        </button>
+                    </div>
+                </div>
+
+                <form id="studentForm" class="student-form">
+                    <div class="form-grid">
+                        <!-- Basic Information -->
+                        <div class="form-section-title">
+                            <h3>👤 Basic Information</h3>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="age">
+                                Age
+                                <span class="tooltip" data-tooltip="Student's current age (15-19 years)">ℹ️</span>
+                            </label>
+                            <input type="number" id="age" name="age" class="form-control" min="15" max="19" required>
+                            <div class="error-message" id="age-error"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="sex">
+                                Gender
+                                <span class="tooltip" data-tooltip="Student's gender">ℹ️</span>
+                            </label>
+                            <select id="sex" name="sex" class="form-control" required>
+                                <option value="">Select Gender</option>
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                            </select>
+                            <div class="error-message" id="sex-error"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="address">
+                                Address Type
+                                <span class="tooltip" data-tooltip="Whether student lives in urban or rural area">ℹ️</span>
+                            </label>
+                            <select id="address" name="address" class="form-control" required>
+                                <option value="">Select Address Type</option>
+                                <option value="U">Urban</option>
+                                <option value="R">Rural</option>
+                            </select>
+                            <div class="error-message" id="address-error"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="famsize">
+                                Family Size
+                                <span class="tooltip" data-tooltip="Number of family members living together">ℹ️</span>
+                            </label>
+                            <select id="famsize" name="famsize" class="form-control" required>
+                                <option value="">Select Family Size</option>
+                                <option value="LE3">≤ 3 members</option>
+                                <option value="GT3">> 3 members</option>
+                            </select>
+                            <div class="error-message" id="famsize-error"></div>
+                        </div>
+
+                        <!-- Educational Background -->
+                        <div class="form-section-title full-width">
+                            <h3>🎓 Educational Background</h3>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="Medu">
+                                Mother's Education Level
+                                <span class="tooltip" data-tooltip="Mother's education level from 0 (none) to 4 (higher education)">ℹ️</span>
+                            </label>
+                            <div class="slider-container">
+                                <input type="range" id="Medu" name="Medu" class="form-slider" min="0" max="4" step="1" value="2">
+                                <div class="slider-labels">
+                                    <span>None</span>
+                                    <span>Primary</span>
+                                    <span>5th-9th</span>
+                                    <span>Secondary</span>
+                                    <span>Higher</span>
+                                </div>
+                                <div class="slider-value" id="Medu-value">5th-9th grade</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="Fedu">
+                                Father's Education Level
+                                <span class="tooltip" data-tooltip="Father's education level from 0 (none) to 4 (higher education)">ℹ️</span>
+                            </label>
+                            <div class="slider-container">
+                                <input type="range" id="Fedu" name="Fedu" class="form-slider" min="0" max="4" step="1" value="2">
+                                <div class="slider-labels">
+                                    <span>None</span>
+                                    <span>Primary</span>
+                                    <span>5th-9th</span>
+                                    <span>Secondary</span>
+                                    <span>Higher</span>
+                                </div>
+                                <div class="slider-value" id="Fedu-value">5th-9th grade</div>
+                            </div>
+                        </div>
+
+                        <!-- Academic Information -->
+                        <div class="form-section-title full-width">
+                            <h3>📚 Academic Information</h3>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="studytime">
+                                Weekly Study Time
+                                <span class="tooltip" data-tooltip="Hours spent studying per week">ℹ️</span>
+                            </label>
+                            <select id="studytime" name="studytime" class="form-control" required>
+                                <option value="">Select Study Time</option>
+                                <option value="1">< 2 hours</option>
+                                <option value="2">2-5 hours</option>
+                                <option value="3">5-10 hours</option>
+                                <option value="4">> 10 hours</option>
+                            </select>
+                            <div class="error-message" id="studytime-error"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="failures">
+                                Past Class Failures
+                                <span class="tooltip" data-tooltip="Number of past class failures (0-3)">ℹ️</span>
+                            </label>
+                            <input type="number" id="failures" name="failures" class="form-control" min="0" max="3" value="0" required>
+                            <div class="error-message" id="failures-error"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="absences">
+                                School Absences
+                                <span class="tooltip" data-tooltip="Number of school absences this year (0-20)">ℹ️</span>
+                            </label>
+                            <input type="number" id="absences" name="absences" class="form-control" min="0" max="20" value="0" required>
+                            <div class="error-message" id="absences-error"></div>
+                        </div>
+
+                        <!-- Support Systems -->
+                        <div class="form-section-title full-width">
+                            <h3>🤝 Support Systems</h3>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                Extra Educational School Support
+                                <span class="tooltip" data-tooltip="Does the student receive extra educational support from school?">ℹ️</span>
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="schoolsup" value="yes">
+                                    <span class="radio-custom"></span>
+                                    Yes
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="schoolsup" value="no" checked>
+                                    <span class="radio-custom"></span>
+                                    No
+                                </label>
+                            </div>
+                            <div class="error-message" id="schoolsup-error"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                Family Educational Support
+                                <span class="tooltip" data-tooltip="Does the family provide educational support?">ℹ️</span>
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="famsup" value="yes" checked>
+                                    <span class="radio-custom"></span>
+                                    Yes
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="famsup" value="no">
+                                    <span class="radio-custom"></span>
+                                    No
+                                </label>
+                            </div>
+                            <div class="error-message" id="famsup-error"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                Internet Access at Home
+                                <span class="tooltip" data-tooltip="Does the student have internet access at home?">ℹ️</span>
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="internet" value="yes" checked>
+                                    <span class="radio-custom"></span>
+                                    Yes
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="internet" value="no">
+                                    <span class="radio-custom"></span>
+                                    No
+                                </label>
+                            </div>
+                            <div class="error-message" id="internet-error"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                In a Romantic Relationship
+                                <span class="tooltip" data-tooltip="Is the student currently in a romantic relationship?">ℹ️</span>
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="romantic" value="yes">
+                                    <span class="radio-custom"></span>
+                                    Yes
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="romantic" value="no" checked>
+                                    <span class="radio-custom"></span>
+                                    No
+                                </label>
+                            </div>
+                            <div class="error-message" id="romantic-error"></div>
+                        </div>
+
+                        <!-- Health Information -->
+                        <div class="form-section-title full-width">
+                            <h3>❤️ Health Information</h3>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label class="form-label" for="health">
+                                Current Health Status
+                                <span class="tooltip" data-tooltip="Current health status from 1 (very bad) to 5 (very good)">ℹ️</span>
+                            </label>
+                            <div class="slider-container">
+                                <input type="range" id="health" name="health" class="form-slider" min="1" max="5" step="1" value="3">
+                                <div class="slider-labels">
+                                    <span>Very Bad</span>
+                                    <span>Bad</span>
+                                    <span>OK</span>
+                                    <span>Good</span>
+                                    <span>Very Good</span>
+                                </div>
+                                <div class="slider-value" id="health-value">OK</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn--primary btn--lg btn--full-width" id="predictBtn">
+                            🔮 Predict Academic Performance
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Results Section -->
+            <section id="resultsSection" class="results-section hidden">
+                <div class="card">
+                    <div class="card__body">
+                        <div class="result-header">
+                            <h2 id="resultTitle">📊 Prediction Results</h2>
+                            <div class="result-status" id="resultStatus">
+                                <!-- Status will be inserted here -->
+                            </div>
+                        </div>
+
+                        <div class="confidence-section">
+                            <h3>🎯 Confidence Score</h3>
+                            <div class="confidence-bar">
+                                <div class="confidence-fill" id="confidenceFill"></div>
+                                <span class="confidence-text" id="confidenceText">0%</span>
+                            </div>
+                        </div>
+
+                        <div class="factors-section">
+                            <h3>📈 Top Contributing Factors</h3>
+                            <div class="factors-list" id="factorsList">
+                                <!-- Factors will be inserted here -->
+                            </div>
+                        </div>
+
+                        <div class="interpretation-section">
+                            <h3>💡 Interpretation</h3>
+                            <div class="interpretation-content" id="interpretationContent">
+                                <!-- Interpretation will be inserted here -->
+                            </div>
+                        </div>
+
+                        <button class="btn btn--secondary btn--lg btn--full-width" id="newPredictionBtn">
+                            🔄 Make Another Prediction
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading Overlay -->
+            <div id="loadingOverlay" class="loading-overlay hidden">
+                <div class="loading-content">
+                    <div class="spinner"></div>
+                    <h3>🤖 Analyzing Student Data...</h3>
+                    <p>Processing features and calculating prediction</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 Student Performance Predictor. Built for educational purposes.</p>
+                <p><small>This application simulates machine learning predictions and is not intended for actual academic decisions.</small></p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
