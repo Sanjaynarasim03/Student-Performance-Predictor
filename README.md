@@ -1,4 +1,4 @@
-# 🎓 Student Performance Predictor - Complete ML Project
+# 🎓 Student Performance Predictor -  ML Project
 
 A comprehensive full-stack machine learning application that predicts student academic performance based on demographic, social, and educational factors using Python, Flask, and React/HTML.
 
@@ -350,10 +350,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-- **Author**: Your Name
-- **Email**: your.email@example.com
-- **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/in/yourprofile)
-- **GitHub**: [Your GitHub Profile](https://github.com/yourusername)
+- **Author**: Sanjay Narasimhan
+
 
 ---
 
