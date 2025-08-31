@@ -1,0 +1,11 @@
+school_id,school_type,school_size,library_quality,computer_lab,science_lab,sports_facilities,student_teacher_ratio,school_budget_per_student,internet_speed,building_condition
+1,Public,Small,1,yes,yes,Good,16.3,4362.0,Medium,Fair
+2,Public,Medium,1,yes,yes,Good,16.2,6257.0,Medium,Good
+3,Private,Large,2,yes,no,Good,28.2,6991.0,Medium,Good
+4,Public,Medium,5,yes,yes,Excellent,27.4,4510.0,High,Good
+5,Public,Large,3,yes,yes,Fair,25.7,4625.0,Low,Poor
+6,Public,Large,3,yes,yes,Fair,20.6,4757.0,Medium,Good
+7,Public,Large,2,yes,yes,Excellent,28.7,5412.0,High,Good
+8,Private,Large,3,yes,no,Fair,28.4,4128.0,Medium,Good
+9,Public,Small,2,yes,yes,Fair,25.4,2000.0,Medium,Fair
+10,Public,Large,2,yes,yes,Excellent,19.1,6789.0,High,Excellent
